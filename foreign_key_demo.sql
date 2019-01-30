@@ -38,3 +38,15 @@ from employees
 join salaries on salaries.emp_no = employees.emp_no
 join titles on titles.emp_no = employees.emp_no
 where hire_date like '%-01-30';
+
+
+select departments.dept_name, salaries.salary, employees.first_name, employees.emp_no
+from departments
+join dept_emp on dept_emp.dept_no = departments.dept_no
+join employees on employees.emp_no = dept_emp.emp_no
+join salaries on salaries.emp_no = employees.emp_no
+where employees.hire_date like '%-01-30'
+AND salaries.salary > 100000
+ORDER BY salary DESC;
+
+select * from dept_emp;
