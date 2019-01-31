@@ -49,4 +49,16 @@ where employees.hire_date like '%-01-30'
 AND salaries.salary > 100000
 ORDER BY salary DESC;
 
-select * from dept_emp;
+select *
+from dept_manager;
+
+# employees table to get the first and last name
+# dept_manager is the table that associates emp_no with dept_no
+# departments table to get the name of dept
+
+# Get the dept_no and emp_no of all current managers
+select e.first_name, e.last_name, d.dept_name
+from dept_manager
+join employees as e on e.emp_no = dept_manager.emp_no
+join departments d on dept_manager.dept_no = d.dept_no
+where to_date = '9999-01-01';
