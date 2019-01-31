@@ -79,3 +79,19 @@ AND emp_no IN (
   from employees
   where hire_date like '%-01-31'
 );
+
+
+select first_name, last_name
+from employees
+where emp_no in (
+  select emp_no
+  from salaries
+  where salary in (
+    select max(salary)
+    from salaries
+  )
+);
+
+
+
+
